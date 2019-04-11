@@ -23,6 +23,16 @@ path.data: {{ data_dirs | array_to_str }}
 
 path.logs: {{ log_dir }}
 
+#################################### Transport SSL ####################################
+{% if es_ssl_transport_config %}
+{{ es_ssl_transport_config | to_nice_yaml }}
+{% endif %}
+
+#################################### HTTP SSL ####################################
+{% if es_ssl_http_config %}
+{{ es_ssl_http_config | to_nice_yaml }}
+{% endif %}
+
 {% if es_path_repo is defined %}
 path.repo: {{ es_path_repo }}
 {% endif %}
